@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback | Tasty Trails Restaurant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <img src="images/logo.jpg" alt="Tasty Trails Restaurant" class="hero-img">
+      <h1>Tasty Trails Restaurant</h1>
+      <p>Where Passion Meets the Plate</p>
+    </div>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <section>
+      <h2>We Value Your Feedback!</h2>
+      <form id="feedbackForm" novalidate>
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="rating">How would you rate us?</label>
+        <select id="rating" name="rating" required>
+          <option value="">--Select--</option>
+          <option value="excellent">Excellent ⭐⭐⭐⭐</option>
+          <option value="good">Good ⭐⭐⭐</option>
+          <option value="average">Average ⭐⭐</option>
+          <option value="poor">Poor ⭐</option>
+        </select>
+        <label for="message">Your Feedback:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+        <button type="submit">Submit Feedback</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Tasty Trails Restaurant | 123 Francis Street, Francistown | info@tastytrails.com</p>
+  </footer>
+  <script>
+    document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+      let valid = true;
+      const email = document.getElementById('email');
+      const rating = document.getElementById('rating');
+      if (!email.value.includes('@')) {
+        email.style.border = '2px solid red';
+        valid = false;
+      } else {
+        email.style.border = '';
+      }
+      if (!rating.value) {
+        rating.style.border = '2px solid red';
+        valid = false;
+      } else {
+        rating.style.border = '';
+      }
+      if (!valid) e.preventDefault();
+    });
+  </script>
+</body>
+</html>
